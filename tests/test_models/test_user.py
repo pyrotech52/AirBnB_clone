@@ -1,37 +1,33 @@
 #!/usr/bin/python3
 """Unit tests for User class."""
-from tests.test_models.test_base_model import TestBaseModel
+
+import unittest
 from models.user import User
 
-class TestUser(TestBaseModel):
-    """Test cases for the User class."""
 
-    def __init__(self, *args, **kwargs):
-        """Initialize a new User instance for testing."""
-        super().__init__(*args, **kwargs)
-        self.name = "User"
-        self.value = User
+class TestUser(unittest.TestCase):
+    """Contains unit tests for the User class."""
 
-    def test_first_name_attribute(self):
-        """Test if the first_name attribute of User is a string."""
-        new_user = self.value()
-        self.assertIsInstance(new_user.first_name, str)
+    def setUp(self):
+        """Set up method for each test."""
+        self.user = User()
 
-    def test_last_name_attribute(self):
-        """Test if the last_name attribute of User is a string."""
-        new_user = self.value()
-        self.assertIsInstance(new_user.last_name, str)
+    def test_first_name_type(self):
+        """Test if first_name attribute is of type str."""
+        self.assertIsInstance(self.user.first_name, str)
 
-    def test_email_attribute(self):
-        """Test if the email attribute of User is a string."""
-        new_user = self.value()
-        self.assertIsInstance(new_user.email, str)
+    def test_last_name_type(self):
+        """Test if last_name attribute is of type str."""
+        self.assertIsInstance(self.user.last_name, str)
 
-    def test_password_attribute(self):
-        """Test if the password attribute of User is a string."""
-        new_user = self.value()
-        self.assertIsInstance(new_user.password, str)
+    def test_email_type(self):
+        """Test if email attribute is of type str."""
+        self.assertIsInstance(self.user.email, str)
+
+    def test_password_type(self):
+        """Test if password attribute is of type str."""
+        self.assertIsInstance(self.user.password, str)
+
 
 if __name__ == '__main__':
     unittest.main()
-

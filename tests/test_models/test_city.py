@@ -1,29 +1,25 @@
 #!/usr/bin/python3
-""" """
-from tests.test_models.test_base_model import TestBaseModel
+"""Unit tests for City class."""
+
+import unittest
 from models.city import City
 
-class TestCity(TestBaseModel):
-    """Test cases for the City class"""
 
-    def __init__(self, *args, **kwargs):
-        """Initializes a new City instance for testing"""
-        super().__init__(*args, **kwargs)
-        self.name = "City"
-        self.value = City
+class TestCity(unittest.TestCase):
+    """Contains unit tests for the City class."""
 
-    def test_state_id_attribute(self):
-        """Test if the state_id attribute of City is a string"""
-        new_city = self.value()
-        self.assertIsInstance(new_city.state_id, str)
+    def setUp(self):
+        """Set up method for each test."""
+        self.city = City()
 
-    def test_name_attribute(self):
-        """Test if the name attribute of City is a string"""
-        new_city = self.value()
-        self.assertIsInstance(new_city.name, str)
+    def test_state_id_type(self):
+        """Test if state_id attribute is of type str."""
+        self.assertIsInstance(self.city.state_id, str)
 
-    # Add more test cases as needed
+    def test_name_type(self):
+        """Test if name attribute is of type str."""
+        self.assertIsInstance(self.city.name, str)
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
     unittest.main()
-

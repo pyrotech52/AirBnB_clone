@@ -37,6 +37,6 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("'created_at':", str(self.model))
         self.assertIn("'updated_at':", str(self.model))
 
+
 if __name__ == '__main__':
     unittest.main()
-
